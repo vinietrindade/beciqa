@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 
-double e=2.718281828459045235360287;
-double pi=3.14159265358979323846;
-
 double valores[9];
 double q[9];
 
@@ -74,3 +71,51 @@ double ph()
 }	
 
 
+double DemandaBioquimicadeOxigenio()
+{
+	scanf("%lf", &valores[3]);
+	
+  if (valores[3]>30)
+    {
+      q[3]=2;
+    }
+      else if (valores[3]<=30)
+    {
+       q[3]=102.6*exp(-0.01101*valores[3]);
+    }
+                                  
+	DBO = pow(q[3],0.10);
+}	
+
+
+double Nitrogenio()
+{
+
+	scanf("%lf", &valores[4]);
+	
+	if (valores[4]>100)
+    {
+       q[4]=1;
+    }
+       else if (valores[4]<=100)
+    {
+       q[4]=98.96*pow(valores[4],-0.2232-0.006457*valores[4]);
+    }
+	nitrogenio_total = pow(q[4],0.10);
+}
+
+double fosfato()
+{
+	scanf("%lf", &valores[5]);
+	
+	 if (valores[5]>10)
+    {
+       q[5]=5;
+    }
+      else if (valores[5]<=10)
+    {
+      q[5]=213.7*exp(-1.680*pow(valores[5],0.3325));
+    }
+                                  
+	fosfato_total = pow(q[5],0.10);
+}

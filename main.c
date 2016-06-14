@@ -8,7 +8,7 @@ double coliformes_fecais;
 double pH;
 double DBO;
 double nitrogenio_total;
-double fosfato_total;
+double fosforo_total;
 double variacao_temperatura;
 double trb;
 double solidos_totais;
@@ -17,7 +17,9 @@ double IQA;
 
 double oxigeniodissolvido()
 {
+	printf("Oxigenio Dissolvido\n");
 	scanf("%lf", &valores[0]);
+	printf("%.4lf\n",valores[0]);
 	
 	
  if (valores[0]>140)
@@ -36,7 +38,9 @@ double oxigeniodissolvido()
 
 double coliformesfecais()
 {
+	printf("Coliformes Fecais (NMP/100mL)\n");
 	scanf("%lf", &valores[1]);
+	printf("%.4lf\n",valores[1]);
 	
 if (valores[1]>100000)
     {
@@ -53,8 +57,9 @@ if (valores[1]>100000)
 	
 double ph()
 {
+	printf("pH (unidades de pH)\n");
 	scanf("%lf", &valores[2]);
-	
+	printf("%.4lf\n",valores[1]);
 	if (valores[2]>12)
     {
     q[2]=3;
@@ -73,8 +78,9 @@ double ph()
 
 double DemandaBioquimicadeOxigenio()
 {
+	printf("DBO (mg/L)\n");
 	scanf("%lf", &valores[3]);
-	
+	printf("%.4lf\n",valores[3]);
   if (valores[3]>30)
     {
       q[3]=2;
@@ -90,9 +96,9 @@ double DemandaBioquimicadeOxigenio()
 
 double Nitrogenio()
 {
-
+	printf("Nitrogênio Total (mg/L)\n");
 	scanf("%lf", &valores[4]);
-	
+	printf("%.4lf\n",valores[4]);
 	if (valores[4]>100)
     {
        q[4]=1;
@@ -104,10 +110,11 @@ double Nitrogenio()
 	nitrogenio_total = pow(q[4],0.10);
 }
 
-double fosfato()
+double fosforo()
 {
+	printf("Fósforo Total (mg/L)\n");
 	scanf("%lf", &valores[5]);
-	
+	printf("%.4lf\n",valores[5]);
 	 if (valores[5]>10)
     {
        q[5]=5;
@@ -117,13 +124,14 @@ double fosfato()
       q[5]=213.7*exp(-1.680*pow(valores[5],0.3325));
     }
                                   
-	fosfato_total = pow(q[5],0.10);
+	fosforo_total = pow(q[5],0.10);
 }
 
 double temperatura()
 {
+	printf("Variação de Temperatura (°C)\n");
 	scanf("%lf", &valores[6]);
-	
+	printf("%.4lf\n",valores[6]);
 if (valores[6]<-5)
     {
         q[6]=1;
@@ -141,9 +149,9 @@ if (valores[6]<-5)
 
 double turbidez()
 {
-
+	printf("Turbidez (UNT)\n");
 	scanf("%lf", &valores[7]);
-	
+	printf("%.4lf\n",valores[7]);
 	 if (valores[7]>100)
       {
        q[7]=5;
@@ -158,7 +166,9 @@ double turbidez()
 
 double solidos()
 {
+	printf("Sólidos Totais (mg/L)\n");
 	scanf("%lf", &valores[8]);
+	printf("%.4lf\n",valores[8]);
 	 if (valores[8]>500)
      {
        q[8]=32;
@@ -183,7 +193,7 @@ int main(){
 	
 	Nitrogenio();
 	
-	fosfato();
+	fosforo();
 	
 	temperatura();
 	
@@ -191,38 +201,30 @@ int main(){
 	
 	solidos();
 	
-	IQA = (oxigenio_dissolvido)*(coliformes_fecais)*(pH)*(DBO)*(nitrogenio_total)*(fosfato_total)*(variacao_temperatura)*(trb)*(solidos_totais);
+	IQA = (oxigenio_dissolvido)*(coliformes_fecais)*(pH)*(DBO)*(nitrogenio_total)*(fosforo_total)*(variacao_temperatura)*(trb)*(solidos_totais);
 	
-	printf("%.4lf\n",oxigenio_dissolvido);
-	printf("%.4lf\n",coliformes_fecais);
-	printf("%.4lf\n",pH);
-	printf("%.4lf\n",DBO);
-	printf("%.4lf\n",nitrogenio_total);
-	printf("%.4lf\n",fosfato_total);
-	printf("%.4lf\n",variacao_temperatura);
-	printf("%.4lf\n",trb);
-	printf("%.4lf\n",solidos_totais);
+	
 	printf("IQA = %.4lf\n",IQA);
 	
 	if (IQA>=0 && IQA<=19)
             {
-                        printf("Pessima\n");
+                        printf("Nivel de Qualidade da Água: Pessima\n");
             }
             if (IQA>=20 && IQA<=36)
             {
-                        printf("Ruim\n");
+                        printf("Nivel de Qualidade da Água: Ruim\n");
             }
             if (IQA>=37 && IQA<=50)
             {
-                        printf("Aceitavel\n");
+                        printf("Nivel de Qualidade da Água: Aceitavel\n");
             }
             if (IQA>=51 && IQA<=79)
             {
-                        printf("Boa\n");
+                        printf("Nivel de Qualidade da Água: Boa\n");
             }
             if (IQA>=80 && IQA<=100)
             {
-                        printf("Otima\n");
+                        printf("Nivel de Qualidade da Água: Otima\n");
             }
 	
 	return 0;

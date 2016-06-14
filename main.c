@@ -119,3 +119,114 @@ double fosfato()
                                   
 	fosfato_total = pow(q[5],0.10);
 }
+
+double temperatura()
+{
+	scanf("%lf", &valores[6]);
+	
+if (valores[6]<-5)
+    {
+        q[6]=1;
+    }
+    else if (valores[6]>15)
+    {
+    q[6]=9;
+    }
+    else if (valores[6]<=15 && valores[6]>=-5)
+    {
+        q[6]=1/(0.0003869*pow(valores[6]+0.1815,2)+0.01081);
+    }
+    variacao_temperatura = pow(q[6],0.10);
+}
+
+double turbidez()
+{
+
+	scanf("%lf", &valores[7]);
+	
+	 if (valores[7]>100)
+      {
+       q[7]=5;
+      }
+       else if (valores[7]<=100)
+        {
+    		q[7]=97.34*exp(-0.01139*valores[7]+-0.04917*sqrt(valores[7]));
+        }
+	trb = pow(q[7],0.08);
+}
+
+
+double solidos()
+{
+	scanf("%lf", &valores[8]);
+	 if (valores[8]>500)
+     {
+       q[8]=32;
+     }
+     else if (valores[8]<=500)
+     {
+        q[8]=80.26*exp(-0.00107*valores[8]+0.03009*sqrt(valores[8]))-0.1185*valores[8];
+      }
+
+	solidos_totais = pow(q[8],0.08);
+}
+
+int main(){
+
+	oxigeniodissolvido();
+	
+	coliformesfecais();
+	
+	ph();
+	
+	DemandaBioquimicadeOxigenio();
+	
+	Nitrogenio();
+	
+	fosfato();
+	
+	temperatura();
+	
+	turbidez();
+	
+	solidos();
+	
+	IQA = (oxigenio_dissolvido)*(coliformes_fecais)*(pH)*(DBO)*(nitrogenio_total)*(fosfato_total)*(variacao_temperatura)*(trb)*(solidos_totais);
+	
+	printf("%.4lf\n",oxigenio_dissolvido);
+	printf("%.4lf\n",coliformes_fecais);
+	printf("%.4lf\n",pH);
+	printf("%.4lf\n",DBO);
+	printf("%.4lf\n",nitrogenio_total);
+	printf("%.4lf\n",fosfato_total);
+	printf("%.4lf\n",variacao_temperatura);
+	printf("%.4lf\n",trb);
+	printf("%.4lf\n",solidos_totais);
+	printf("IQA = %.4lf\n",IQA);
+	
+	if (IQA>=0 && IQA<=19)
+            {
+                        printf("Pessima\n");
+            }
+            if (IQA>=20 && IQA<=36)
+            {
+                        printf("Ruim\n");
+            }
+            if (IQA>=37 && IQA<=50)
+            {
+                        printf("Aceitavel\n");
+            }
+            if (IQA>=51 && IQA<=79)
+            {
+                        printf("Boa\n");
+            }
+            if (IQA>=80 && IQA<=100)
+            {
+                        printf("Otima\n");
+            }
+	
+	return 0;
+}
+
+
+

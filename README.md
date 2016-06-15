@@ -11,7 +11,7 @@ temperatura<br>
 turbidez<br>
 sólidos<br> 
 
-Reunindo esses dados podemos calcular o indice de qualidade da água (IQA) e verificar o nivel da qualidade de água (ruim, bom, etc).
+Reunindo esses dados podemos calcular o indice de qualidade da água (IQA) e verificar o nivel de qualidade da água (pessimo, ruim, aceitável, bom ou ótimo).
 
 # Compilando
 Para a compilação é necessário entrar no terminal; assim que realizado, deve ser seguidos alguns passos:<br>

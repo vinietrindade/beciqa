@@ -15,7 +15,7 @@ Reunindo esses dados podemos calcular o indice de qualidade da água (IQA) e ver
 
 # Compilando
 Para a compilação é necessário entrar no terminal; assim que realizado, deve ser seguidos alguns passos:<br>
-do repositório</b></i> ---- para obter a pasta raiz;<br>
+git clone <i><b>url do repositório</b></i> ---- para obter a pasta raiz;<br>
 cd <b><i>nome do repositório</i></b> ------ para entrar na pasta raiz;<br>
 gcc main.c -o main -lm -------- para gerar o executável do código;<br>
 ./main ------------ para executar o código;<br>
